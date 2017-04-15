@@ -13,7 +13,7 @@ AlbumList.prototype = {
       if (request.status === 200) {
         var jsonString = request.responseText
         this.albums = JSON.parse(jsonString)
-        callback(this.albums)
+        callback(this.albums.albums.items)
       }
     }.bind(this)
     request.send()
