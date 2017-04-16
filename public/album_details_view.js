@@ -12,21 +12,35 @@ AlbumDetailsView.prototype = {
     this.clearDetails()
     // layout information about selected album
     // name, artist, album/single
-    this.addH2('<strong>' + this.album.name + '</strong> by <em>' + this.album.artists[0].name + '</em')
+    this.addH3(this.album.name + '<em> by </em>' + this.album.artists[0].name)
     // image
+    this.addImg(this.album.images[1].url)
     // spotify link / button
   },
 
-  addH2: function (info) {
-    var pTag = document.createElement('p')
+  addH3: function (info) {
+    var pTag = document.createElement('h3')
     pTag.innerHTML = info
     this.HTMLElement.appendChild(pTag)
   },
+
+  addImg: function (imgURL) {
+    var imgTag = document.createElement('img')
+    imgTag.src = imgURL
+    imgTag.width = 300
+    imgTag.height = 300
+    this.HTMLElement.appendChild(imgTag)
+  },
+
   clearDetails: function () {
     console.log(this.HTMLElement.childNodes)
-    this.HTMLElement.childNodes.forEach(function (tag, index) {
-      this.HTMLElement.removeChild(tag)
-    }.bind(this))
+    // this.HTMLElement.childNodes.forEach(function (tag, index) {
+    //   this.HTMLElement.removeChild(tag)
+    // }.bind(this))
+    // from MDN
+    while (this.HTMLElement.firstChild) {
+      this.HTMLElement.removeChild(this.HTMLElement.firstChild)
+    }
   }
 
 }
