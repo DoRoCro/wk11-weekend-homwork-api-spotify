@@ -8,7 +8,7 @@ var AlbumList = function (url, searchString) {
 AlbumList.prototype = {
   getData: function (callback) {
     var request = new XMLHttpRequest()
-    request.open('GET', this.url + this.search + '&type=album')
+    request.open('GET', this.url + this.search + '&type=album&limit=50')
     request.onload = function () {
       if (request.status === 200) {
         var jsonString = request.responseText
