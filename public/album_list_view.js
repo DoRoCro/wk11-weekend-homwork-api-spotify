@@ -1,11 +1,14 @@
-var AlbumListView = function (selectElement) {
+var AlbumListView = function (targetElement) {
   this.albums = []
-  this.menu = selectElement
+  this.menu = targetElement
+  this.menu.onChange = null
+  this.menu.addEventListener('change', this.onChange())
   // console.log(albums)
 }
 
 AlbumListView.prototype = {
   render: function (albums) {
+    this.menu.appendChild(document.createElement('select'))
     this.albums = albums
     this.albums.forEach(this.createOption.bind(this))
   },
@@ -15,6 +18,10 @@ AlbumListView.prototype = {
     optionElement.value = index
     optionElement.text = album.name
     this.menu.appendChild(optionElement)
+  },
+
+  onChange: function () {
+
   }
 
 }
