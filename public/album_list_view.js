@@ -1,9 +1,9 @@
-var AlbumListView = function (targetElement) {
+var AlbumListView = function (targetElement, displayView) {
   this.albums = []
   this.menu = targetElement
-  this.menu.onChange = null
-  this.menu.addEventListener('change', this.onChange())
-  // console.log(albums)
+  this.displayView = displayView
+  // console.log(this.displayView)
+  // this.menu.addEventListener('change', this.onChange())
 }
 
 AlbumListView.prototype = {
@@ -19,9 +19,8 @@ AlbumListView.prototype = {
     optionElement.text = album.name
     this.menu.appendChild(optionElement)
   },
-
   onChange: function () {
-
+    console.log(this.value, this.displayView)
+    this.displayView.render(this.menu.value)
   }
-
 }
