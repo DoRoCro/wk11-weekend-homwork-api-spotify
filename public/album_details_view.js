@@ -16,11 +16,13 @@ AlbumDetailsView.prototype = {
     // image
     this.addImg(this.album.images[1].url)
     // spotify link / button
+    this.addText('a', 'link to album in spotify', this.album.uri)
   },
 
-  addText: function (tagType, info) {
+  addText: function (tagType, info, url) {
     var pTag = document.createElement(tagType)
     pTag.innerHTML = info
+    pTag.href = url
     this.HTMLElement.appendChild(pTag)
   },
 
