@@ -12,14 +12,14 @@ AlbumDetailsView.prototype = {
     this.clearDetails()
     // layout information about selected album
     // name, artist, album/single
-    this.addH3(this.album.name + '<em> by </em>' + this.album.artists[0].name)
+    this.addText('h3', this.album.name + '<em> by </em>' + this.album.artists[0].name)
     // image
     this.addImg(this.album.images[1].url)
     // spotify link / button
   },
 
-  addH3: function (info) {
-    var pTag = document.createElement('h3')
+  addText: function (tagType, info) {
+    var pTag = document.createElement(tagType)
     pTag.innerHTML = info
     this.HTMLElement.appendChild(pTag)
   },
