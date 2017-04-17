@@ -9,12 +9,17 @@ AlbumDetailsView.prototype = {
     // console.log(index, this.albums)
     console.log(this.albums[index])
     this.album = this.albums[index]
+
+    // clear any existing info in the panel
     this.clearDetails()
+
     // layout information about selected album
     // name, artist, album/single
     this.addText('h3', this.album.name + '<em> by </em>' + this.album.artists[0].name)
+
     // image
     this.addImg(this.album.images[1].url)
+    this.addText('p', '')
     // spotify link / button
     this.addText('a', 'link to album in spotify', this.album.uri)
   },
